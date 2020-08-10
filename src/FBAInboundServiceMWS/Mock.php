@@ -213,6 +213,38 @@ class FBAInboundServiceMWS_Mock implements FBAInboundServiceMWS_Interface
     }
 
     /**
+     * Get Unique Package Labels
+     * Retrieves the PDF-formatted package label data for the packages of the
+     *     shipment. These labels will include relevant data for shipments utilizing
+     *     Amazon-partnered carriers. Each label contains a unique package identifier that represents the mapping between
+     *     physical and virtual packages. This API requires that Carton Information has been provided for all packages in the
+     *     shipment. The PDF data will be ZIP'd and then it will be encoded as a Base64 string, and
+     *     MD5 hash is included with the response to validate the label data which will be encoded as Base64.
+     *     The language of the address and FC prep instructions sections of the labels are
+     *     determined by the marketplace in which the request is being made and the marketplace of
+     *     the destination FC, respectively.
+     *
+     *     Only select PageTypes are supported in each marketplace. By marketplace, the
+     *     supported types are:
+     *       * US non-partnered UPS: PackageLabel_Letter_6
+     *       * US partnered-UPS: PackageLabel_Letter_2
+     *       * GB, DE, FR, IT, ES: PackageLabel_A4_4, PackageLabel_Plain_Paper
+     *       * Partnered EU: PackageLabel_A4_2
+     *       * JP/CN: PackageLabel_Plain_Paper
+     *
+     * @param mixed $request array of parameters for FBAInboundServiceMWS_Model_GetUniquePackageLabels request or FBAInboundServiceMWS_Model_GetUniquePackageLabels object itself
+     * @see FBAInboundServiceMWS_Model_GetUniquePackageLabels
+     * @return FBAInboundServiceMWS_Model_GetUniquePackageLabelsResponse
+     *
+     * @throws FBAInboundServiceMWS_Exception
+     */
+    public function getUniquePackageLabels($request)
+    {
+        require_once (dirname(__FILE__) . '/Model/GetUniquePackageLabelsResponse.php');
+        return FBAInboundServiceMWS_Model_GetUniquePackageLabelsResponse::fromXML($this->_invoke('GetUniquePackageLabels'));
+    }
+
+    /**
      * List Inbound Shipment Items
      * Gets the first set of inbound shipment items for the given ShipmentId or
      * all inbound shipment items updated between the given date range.
