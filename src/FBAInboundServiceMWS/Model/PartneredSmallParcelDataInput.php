@@ -1,6 +1,6 @@
 <?php
 /*******************************************************************************
- * Copyright 2009-2014 Amazon Services. All Rights Reserved.
+ * Copyright 2009-2018 Amazon Services. All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  *
  * You may not use this file except in compliance with the License.
@@ -13,8 +13,8 @@
  * @category Amazon
  * @package  FBA Inbound Service MWS
  * @version  2010-10-01
- * Library Version: 2014-09-30
- * Generated: Fri Nov 21 18:21:09 GMT 2014
+ * Library Version: 2016-10-05
+ * Generated: Thu Nov 08 11:45:48 PST 2018
  */
 
 /**
@@ -24,6 +24,7 @@
  * <ul>
  *
  * <li>PackageList: FBAInboundServiceMWS_Model_PartneredSmallParcelPackageInputList</li>
+ * <li>CarrierName: string</li>
  *
  * </ul>
  */
@@ -33,10 +34,8 @@ class FBAInboundServiceMWS_Model_PartneredSmallParcelDataInput extends FBAInboun
     public function __construct($data = null)
     {
         $this->_fields = array(
-            'PackageList' => array(
-                'FieldValue' => null,
-                'FieldType' => 'FBAInboundServiceMWS_Model_PartneredSmallParcelPackageInputList'
-            ),
+            'PackageList' => array('FieldValue' => null, 'FieldType' => 'FBAInboundServiceMWS_Model_PartneredSmallParcelPackageInputList'),
+            'CarrierName' => array('FieldValue' => null, 'FieldType' => 'string'),
         );
         parent::__construct($data);
     }
@@ -44,7 +43,7 @@ class FBAInboundServiceMWS_Model_PartneredSmallParcelDataInput extends FBAInboun
     /**
      * Get the value of the PackageList property.
      *
-     * @return FBAInboundServiceMWS_Model_PartneredSmallParcelPackageInputList PackageList.
+     * @return PartneredSmallParcelPackageInputList PackageList.
      */
     public function getPackageList()
     {
@@ -54,8 +53,8 @@ class FBAInboundServiceMWS_Model_PartneredSmallParcelDataInput extends FBAInboun
     /**
      * Set the value of the PackageList property.
      *
-     * @param FBAInboundServiceMWS_Model_PartneredSmallParcelPackageInputList $value packageList
-     * @return $this This instance
+     * @param FBAInboundServiceMWS_Model_PartneredSmallParcelPackageInputList packageList
+     * @return this instance
      */
     public function setPackageList($value)
     {
@@ -79,11 +78,57 @@ class FBAInboundServiceMWS_Model_PartneredSmallParcelDataInput extends FBAInboun
      * @param packageList
      *             The new value to set.
      *
-     * @return $this This instance.
+     * @return This instance.
      */
     public function withPackageList($value)
     {
         $this->setPackageList($value);
+        return $this;
+    }
+
+    /**
+     * Get the value of the CarrierName property.
+     *
+     * @return String CarrierName.
+     */
+    public function getCarrierName()
+    {
+        return $this->_fields['CarrierName']['FieldValue'];
+    }
+
+    /**
+     * Set the value of the CarrierName property.
+     *
+     * @param string carrierName
+     * @return this instance
+     */
+    public function setCarrierName($value)
+    {
+        $this->_fields['CarrierName']['FieldValue'] = $value;
+        return $this;
+    }
+
+    /**
+     * Check to see if CarrierName is set.
+     *
+     * @return true if CarrierName is set.
+     */
+    public function isSetCarrierName()
+    {
+        return !is_null($this->_fields['CarrierName']['FieldValue']);
+    }
+
+    /**
+     * Set the value of CarrierName, return this.
+     *
+     * @param carrierName
+     *             The new value to set.
+     *
+     * @return This instance.
+     */
+    public function withCarrierName($value)
+    {
+        $this->setCarrierName($value);
         return $this;
     }
 
