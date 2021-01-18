@@ -334,4 +334,9 @@ class FBAInboundServiceMWS_Model_InboundShipmentHeader extends FBAInboundService
         return $this;
     }
 
+    public function setIntendedBoxContentsSource($value){
+        $this->_fields['IntendedBoxContentsSource']['FieldValue'] = $value;
+        return $this;
+    }
+
 }
