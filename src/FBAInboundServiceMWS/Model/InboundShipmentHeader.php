@@ -44,6 +44,7 @@ class FBAInboundServiceMWS_Model_InboundShipmentHeader extends FBAInboundService
             'AreCasesRequired' => array('FieldValue' => null, 'FieldType' => 'bool'),
             'ShipmentStatus' => array('FieldValue' => null, 'FieldType' => 'string'),
             'LabelPrepPreference' => array('FieldValue' => null, 'FieldType' => 'string'),
+            'IntendedBoxContentsSource' => array('FieldValue' => null, 'FieldType' => 'string')
         );
         parent::__construct($data);
     }
